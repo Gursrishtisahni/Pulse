@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pulse — Register</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --accent: #00BCD4;
+  --accent-neon: #00FFFF;
+  --text-primary: #E0E0E0;
+  --text-secondary: #B0B0B0;
+}
+
+/* BASE */
+body {
+  background: radial-gradient(circle at top left, #0a0a23, #000000);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--text-primary);
+  position: relative;
+  padding: 80px 20px 60px;
+}
+
+/* FLOATING GLOWS */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(160px);
+  opacity: 0.55;
+  animation: float 6s ease-in-out infinite alternate;
+  z-index: 0;
+}
+.g1 {
+  width: 300px;
+  height: 300px;
+  background: var(--accent);
+  top: -40px;
+  left: -80px;
+}
+.g2 {
+  width: 350px;
+  height: 350px;
+  background: var(--accent-neon);
+  bottom: -80px;
+  right: -100px;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  to { transform: translateY(40px) translateX(20px); }
+}
+
+/* HEADER LOGO */
+header.site-header {
+  position: fixed;
+  top: 25px;
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(0, 188, 212, 0.5);
+  animation: glowPulse 2.5s infinite alternate;
+  z-index: 100;
+}
+@keyframes glowPulse {
+  from { text-shadow: 0 0 10px rgba(0,188,212,0.4); }
+  to { text-shadow: 0 0 25px rgba(0,255,255,0.9); }
+}
+
+/* REGISTER CARD */
+.card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 34px 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.4s ease;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  transition: 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,188,212,0.12);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TITLE */
+.card h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-neon));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* FORM */
+form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.4);
+  outline: none;
+  transform: scale(1.02);
+}
+
+/* BUTTON */
+.btn {
+  background: linear-gradient(90deg, var(--accent), var(--accent-neon));
+  border: none;
+  color: #000;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+}
+
+/* LINKS */
+.center {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.9rem;
+}
+
+.center a {
+  color: var(--accent-neon);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.center a:hover {
+  color: var(--text-primary);
+}
+
+.helper {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 10px 0;
+  margin-top: auto;
+  z-index: 100;
+}
+</style>
+</head>
+
+<body>
+
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<header class="site-header">PULSE</header>
+
+<section class="card glass">
+  <h2>Create an Account</h2>
+  <div class="subtitle">Join the community and share your voice with the world.</div>
+
+  <form>
+    <label>Full Name</label>
+    <input type="text" placeholder="Enter your full name" required />
+
+    <label>Email</label>
+    <input type="email" placeholder="Enter your email" required />
+
+    <label>Username</label>
+    <input type="text" placeholder="Choose a username" required />
+
+    <label>Password</label>
+    <input type="password" placeholder="Create a password" required />
+
+    <button class="btn" type="submit">Register</button>
+  </form>
+
+  <div class="center">
+    Already have an account? <a href="login.html">Login</a>
+  </div>
+
+  <div class="helper">
+    By registering, you agree to our Terms of Service & Privacy Policy.
+  </div>
+</section>
+
+<footer>
+  © 2025 Pulse Social. All rights reserved.
+</footer>
+
+</body>
+</html>
